@@ -24,6 +24,7 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
+            
 
     }
     return (
