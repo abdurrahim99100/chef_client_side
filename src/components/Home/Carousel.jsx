@@ -4,7 +4,6 @@ import Caro2 from '../../assets/pexels-freestocksorg-226632.jpg';
 import Caro3 from '../../assets/pexels-pixabay-221059.jpg';
 import Caro4 from '../../assets/pexels-freestocksorg-226632.jpg';
 
-
 const Carousel = () => {
     return (
         <div className="carousel w-full mt-20">
