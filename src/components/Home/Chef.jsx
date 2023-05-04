@@ -14,7 +14,6 @@ const Chef = () => {
     }, []);
 
 
-    // console.log(chef);
     return (
         <div>
             <h2 className='
