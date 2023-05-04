@@ -1,22 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+    const user = ('')
+    const handelLogOut = () => {
+
+    }
     return (
         <nav className="navbar bg-base-300">
             <div className='container mx-auto flex justify-between'>
                 <div>
                     <h2 className='font-bold text-xl'>Chefs ZONE</h2>
                 </div>
-                <div className='flex gap-8'>
-                    <Link to="/home">Home</Link>
+                <div className='flex gap-8 text-xl'>
+                    <Link to="/">Home</Link>
                     <Link to="">Blog</Link>
-                    <Link to="">
-                        Profile
-                        <img src="" alt="" />
-                    </Link>
-                    <div>
-                        <Link to="">Login</Link>
+                    <Link to="">Support</Link>
+                    <Link to="">Special Food</Link>
+                </div>
+                <div>
+                    <div className='font-semibold flex gap-2'>
+
+                        {
+                            user || <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                        }
+
+                        {user ?
+                            <button onClick={handelLogOut} variant="secondary">Logout</button> :
+                            <Link to="/login">
+                                <button variant="secondary">Login</button>
+                            </Link>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -25,3 +41,4 @@ const Header = () => {
 };
 
 export default Header;
+

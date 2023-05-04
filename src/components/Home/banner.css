@@ -1,3 +1,6 @@
 .banner-images{
     width: 1000px;
 }
+.list-style{
+    list-style: decimal;
+}
