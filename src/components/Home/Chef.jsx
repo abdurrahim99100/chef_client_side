@@ -17,7 +17,10 @@ const Chef = () => {
     // console.log(chef);
     return (
         <div>
-            <h2 className='text-center text-5xl font-semibold text-indigo-300'>WE ARE ALL CHEF</h2>
+            <h2 className='
+            text-center text-5xl font-semibold 
+            first-letter: text-gray-500 py-3 
+            rounded-3xl'>WE ARE ALL CHEF</h2>
             <div className='grid gap-10 grid-cols-2 my-20'>
                 {
                     chef.map(chefs => <Chefs

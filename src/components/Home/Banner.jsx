@@ -4,7 +4,7 @@ import './banner.css';
 
 const Banner = () => {
     return (
-        <div>
+        <div className='my-28'>
             <h2 className='text-center mt-10 text-3xl font-bold'>Welcome To Our Chef ZONE</h2>
             <div className='flex gap-20'>
                 <div>

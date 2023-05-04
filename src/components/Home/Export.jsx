@@ -9,7 +9,7 @@ const Export = () => {
             .then(data => setExpo(data))
             .catch(error => console.log(error))
     }, []);
-    console.log(expo)
+    // console.log(expo)
     return (
         <div>
             <h2 className='text-center text-3xl font-semibold'>WELCOME TO OUR FOREIGNER CHEF LIST</h2>
@@ -21,10 +21,20 @@ const Export = () => {
                             <div className='px-5'>
                                 <p>Form Kingdom of Saudi Arabia</p>
                                 <p className=' text-2xl'>Name: {exports.name}</p>
+                                <p className='text-2xl'>experience: {exports.experience} (Year)</p>
+                                <p className='text-2xl'>Like: {exports.like}</p>
                             </div>
                         </div>
                     )
                 }
+            </div>
+            <div className='flex mb-10'>
+                <div className="mockup-phone border-primary">
+                    <div className="camera"></div>
+                    <div className="display">
+                        <div className="artboard artboard-demo phone-1">Hi.</div>
+                    </div>
+                </div>
             </div>
         </div>
     );

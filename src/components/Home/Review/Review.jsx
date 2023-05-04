@@ -16,6 +16,7 @@ const Review = () => {
                         <p className='text-2xl font-semibold'>Recipe Name: {recipys.name}</p>
                         <p className='text-xl font-semibold'>Recipe Number: {recipys.recipy_number}</p>
                         <p className='font-semibold'>experience: {recipys.exprience} (year)</p>
+                        <button className="btn btn-primary my-2">Favorite</button>
                     </div>
                 )
             }
