@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
-import { setLogLevel } from 'firebase/app';
 
 export const AuthContext = createContext(null);
 
@@ -34,6 +33,10 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
         })
     })
+
+    // ----------------------------
+    //         login google
+    // ---------------------------- 
 
     const authInfo = {
         loading,

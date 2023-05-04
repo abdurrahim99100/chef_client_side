@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
 
+    const [error, setError] = useState(null)
+
     const { signIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     const from = location?.state?.from?.pathname || '/'
 
@@ -29,7 +31,8 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error)
+                console.log(error.message)
+                setError(error)
             })
     }
 
@@ -76,6 +79,7 @@ const Login = () => {
                         <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
                             Login
                         </button>
+                        {/* <p>{error}</p> */}
                     </div>
                 </Form>
 

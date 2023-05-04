@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -24,8 +26,22 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
-            
+    }
+    /**
+         * google signIn;
+         */
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, provider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
     }
     return (
         <div>
@@ -116,7 +132,6 @@ const Register = () => {
                                     border border-indigo-600
                                     px-3
                                     "
-
                                 />
                             </div>
                         </div>
@@ -147,6 +162,7 @@ const Register = () => {
                     </div>
                     <div className="my-6 space-y-2">
                         <button
+                            onClick={handleGoogleSignIn}
                             aria-label="Login with Google"
                             type="button"
                             className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
