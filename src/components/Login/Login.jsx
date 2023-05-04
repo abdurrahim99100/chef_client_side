@@ -13,7 +13,7 @@ const Login = () => {
     const from = location?.state?.from?.pathname || '/'
 
 
-    
+
     const handelLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -21,7 +21,6 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        // console.log(email, password)
 
         signIn(email, password)
             .then(result => {
