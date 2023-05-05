@@ -33,10 +33,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
         })
     })
-
-    // ----------------------------
-    //         login google
-    // ---------------------------- 
+ 
 
     const authInfo = {
         loading,

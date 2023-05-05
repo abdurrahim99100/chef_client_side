@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/'
 
     const handelRegister = event => {
         event.preventDefault();
@@ -35,14 +39,35 @@ const Register = () => {
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, provider)
-        .then(result =>{
-            const user = result.user;
-            console.log(user)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    };
+
+    /**
+     * Github signIn; 
+     * 
+     */
+    const providerGithub = new GithubAuthProvider();
+
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, providerGithub)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.log(error))
     }
+
+
+
+
     return (
         <div>
             <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
@@ -177,6 +202,7 @@ const Register = () => {
                             <p>Login with Google</p>
                         </button>
                         <button
+                            onClick={handleGithubSignIn}
                             aria-label="Login with GitHub"
                             role="button"
                             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
