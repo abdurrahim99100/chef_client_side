@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { useLoaderData, useParams } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Review = () => {
     const reviewData = useLoaderData();
     const reviewDetails = reviewData.recipy;
@@ -9,6 +12,8 @@ const Review = () => {
 
     const handleFav = event =>{
         event.currentTarget.disabled = true;
+
+        toast("Favorite Added!")    
     }
 
 
@@ -27,7 +32,9 @@ const Review = () => {
                                 <p>Flour, Oil, Pepper, Onion, Salt</p>
                             </div>
                             <div>
-                                <button onClick={handleFav} className="btn btn-primary my-2">Favorite</button>
+                                <button onClick={handleFav}
+                                className="btn btn-primary my-2">Favorite</button>
+                                <ToastContainer />
                             </div>
                         </div>
 
