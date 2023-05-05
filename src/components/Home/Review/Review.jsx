@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Rating from 'react-rating';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,10 +9,10 @@ const Review = () => {
     const reviewDetails = reviewData.recipy;
     console.log(reviewDetails)
 
-    const handleFav = event =>{
+    const handleFav = event => {
         event.currentTarget.disabled = true;
 
-        toast("Favorite Added!")    
+        toast("Favorite Added!")
     }
 
 
@@ -33,18 +32,11 @@ const Review = () => {
                             </div>
                             <div>
                                 <button onClick={handleFav}
-                                className="btn btn-primary my-2">Favorite</button>
+                                    className="btn btn-primary my-2">Favorite</button>
                                 <ToastContainer />
                             </div>
                         </div>
-
-                        <Rating
-                            placeholderRating={recipys.id}
-                            emptySymbol={<img src="assets/images/star-grey.png" 
-                            className="icon" />}
-                            placeholderSymbol={<img src="assets/images/star-red.png" className="icon" />}
-                            fullSymbol={<img src="assets/images/star-yellow.png" className="icon" />}
-                        ></Rating>
+                        <p>Rating: (4.3)</p>
                     </div>
                 )
             }
